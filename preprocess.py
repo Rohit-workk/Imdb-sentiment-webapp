@@ -1,5 +1,12 @@
 import nltk
+import os
 
+# Ensure NLTK uses a directory inside your project
+nltk_data_dir = os.path.join(os.path.dirname(__file__), 'nltk_data')
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+# Packages required
 nltk_packages = {
     'stopwords': 'corpora/stopwords',
     'wordnet': 'corpora/wordnet',
@@ -8,11 +15,13 @@ nltk_packages = {
     'averaged_perceptron_tagger': 'taggers/averaged_perceptron_tagger'
 }
 
+# Download if missing
 for pkg, path in nltk_packages.items():
     try:
         nltk.data.find(path)
     except LookupError:
-        nltk.download(pkg)
+        nltk.download(pkg, download_dir=nltk_data_dir, quiet=True)
+
 
 import re
 import string
