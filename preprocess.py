@@ -1,3 +1,10 @@
+import nltk
+nltk_packages = ['stopwords', 'wordnet', 'omw-1.4', 'punkt', 'averaged_perceptron_tagger']
+for package in nltk_packages:
+    try:
+        nltk.data.find(package)
+    except LookupError:
+        nltk.download(package)
 import re
 import string
 import contractions
