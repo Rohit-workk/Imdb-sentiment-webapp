@@ -15,7 +15,7 @@ nltk_packages = {
     'wordnet': 'corpora/wordnet',
     'omw-1.4': 'corpora/omw-1.4',
     'punkt': 'tokenizers/punkt',
-    'averaged_perceptron_tagger': 'taggers/averaged_perceptron_tagger'
+    'averaged_perceptron_tagger_eng': 'taggers/averaged_perceptron_tagger_eng'
 }
 
 for pkg, path in nltk_packages.items():
