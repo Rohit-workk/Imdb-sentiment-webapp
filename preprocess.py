@@ -1,10 +1,19 @@
 import nltk
-nltk_packages = ['stopwords', 'wordnet', 'omw-1.4', 'punkt', 'averaged_perceptron_tagger']
-for package in nltk_packages:
+
+nltk_packages = {
+    'stopwords': 'corpora/stopwords',
+    'wordnet': 'corpora/wordnet',
+    'omw-1.4': 'corpora/omw-1.4',
+    'punkt': 'tokenizers/punkt',
+    'averaged_perceptron_tagger': 'taggers/averaged_perceptron_tagger'
+}
+
+for pkg, path in nltk_packages.items():
     try:
-        nltk.data.find(package)
+        nltk.data.find(path)
     except LookupError:
-        nltk.download(package)
+        nltk.download(pkg)
+
 import re
 import string
 import contractions
